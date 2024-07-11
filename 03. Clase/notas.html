@@ -1,0 +1,68 @@
+<!-- 
+Funciones (Explicación diapositivas) 
+Son bloque de codigo que pueden ser llamados en diferentes momentos de la ejecucion de nuestro programa. 
+
+- Tradicionales 
+- Arrow function 
+- Funcion definida
+- Funcion anonima 
+
+
+CALLBACKS: 
+Enviando una funcion a otra funcion... CALLBACKS
+Un callback es una funcion que se pasa como parametro para poder ser usada por otra funcion
+
+Algunas convenciones de los CALLBACKS:
+- siempre es el ultimo parametro
+- suele ser una funcion que recibe dos parametros 
+-  la funcion llama al callback al terminar de ejecutar todas sus funciones 
+- si la operacion fue exitosa, la funcion llamara al callback pasando null como primer parametro y si genero algun resultado este se pasará como segundo parámetro
+- Si la operacion resultó error, la función llamará al callback pasando error obtenido como primer parametro
+
+
+CALLBACK ANIDADOS / CALLBACK HELL 
+Un callback puede llamar a otro callback y este a otro...
+
+Descompocicion del map: Recreacion interna de la funcion map 
+
+
+PROMESAS:
+Es un objeto especial que nos permitira encapsular una operacion, la cual reaccionara a dos posibles situaciones dentro de una promesa:
+¿Que debería hacer si la promesa se cumple?
+¿Que debería hacer si la promesa no se cumple? 
+
+Promesas en js: 
+- Fulfilled - Resolved (cumplida)
+- Rejected(rechazada)
+
+Debemos aprender como utilizar estos dos estados:
+- Ejecutaremos la funcion que acabamos de crear para que se ejecute la promesa 
+- Utilizaremos el operador .then para recibir el caso en el que la promesa SÍ se haya cumplido
+- Utilizaremos el operador .catch para recibir el caso en el que la promesa NO se haya cumplido 
+
+
+
+SINCRONISMO VS ASINCRONISMO
+
+Sincronimos: Es cuando se ejecuta de modo cascada, es decir tarea 1 > tarea 2 > tarea 3. Las operaciones sincronicas son bloquantes, ya que las otras tarea nos pueden ejecutarse hasta que la primera no haya ejecutado.
+
+Asincronismo: En este caso lo que se puede hacer que tareas trabajen en paralelo, lo que significa que cada una seguira con el ritmo de resolucion que considere su ritmo. Hay que ser cautelosos porque:
+- No controlamos cuando termina, sino cuando comienza
+- Si una tarea depende del resultado de otra habra problemas, pues esperará su ejecucion en paralelo
+
+
+
+ASYNC - AWAIT
+
+El principal problema de los .then y .catch son su encapsulamiento excesivo, impidiendo o limitando que podamos acceder a los recursos de algunos resultados, variables, etc.
+
+Surge entonces en Javascript el soporte para ASYNC - AWAIT, unas palabras reservadas que, trabajando juntas, permiten gestionar un entorno asíncrono, resolviendo las limitantes del .then y .catch
+
+- ASYNC se colocará al inicio de una función, indicando que todo el cuerpo de esa función deberá ejecutarse de manera asíncrona
+- AWAIT servirá (como indica su nombre) para esperar por el resultado de la promesa y extraer su resultado.
+Al ser operaciones que podrían salir bien, PERO TAMBIÉN MAL, es importante encerrar el cuerpo en un bloque try {} catch {}
+
+
+
+DEJE LA CLASE EN EL MINUTO 1:17:30
+-->

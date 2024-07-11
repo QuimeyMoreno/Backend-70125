@@ -28,7 +28,7 @@ lucia.getName();
 lucia.despedir();
 
 console.log(Persona.specie) // Permite acceder al dato porque es una static
-console.log(Persona.getName()) // Nos daria un error 
+//console.log(Persona.getName()) // Nos daria un error 
 
 console.log(quimey.name);
 console.log(quimey.lastName)
