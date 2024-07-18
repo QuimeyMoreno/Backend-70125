@@ -1,0 +1,14 @@
+{
+  "name": "04-clase",
+  "version": "1.0.0",
+  "description": "Prueba de package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Quimey Moreno",
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^3.4.4"
+  }
+}

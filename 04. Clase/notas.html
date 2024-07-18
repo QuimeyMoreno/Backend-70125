@@ -1,0 +1,61 @@
+<!--  
+https://github.com/fernandogiraudo/70125---clase-4 
+
+Node js:
+Surgio la necesidad de ejecutar js fuera del navegador, y ha crecido hasta convertirse en uno de los elementos principales para el desarrollo web
+
+El soporte de esta maravilla tecnológica se basa en utilizar y procesar Javascript, el cual cuenta con una infinidad de funciones y estructuras que permiten resolver diferentes problemas día con día. 
+
+MODULOS NATIVOS DE NODE:
+Conforme necesitamos programas más complejos, necesitamos operaciones más complejas, y conforme necesitamos operaciones más complejas, necesitamos herramientas más útiles.
+
+-Fs: Módulo utilizado para manejo de archivos. Sirve para manejar otro modelo de persistencia.
+
+-Crypto: Permite hacer operaciones de encriptación y cifrado para información sensible. Sirve para mejorar la seguridad de los datos.
+
+-Http:Permite crear un servidor básico bajo el protocolo http. Sirve para crear nuestro primer servidor de solicitud/respuesta
+
+
+-Path: Permite el correcto manejo de rutas. Sirve para evitar ambigüedad al trabajar con rutas
+
+
+
+QUE ES NPM
+NPM refiere a las siglas “Node Package Manager”, El cual refiere a un manejador de paquetes de Node. Éste permite que la comunidad de desarrolladores puedan crear sus propios módulos, para poder subirlos a la nube y así otros desarrolladores puedan utilizarlos. 
+
+Para el trabajo de paqueterías, tendremos un archivo en nuestro proyecto llamado package.json
+
+
+
+QUE ES EL PACKAGE.JSON 
+package.json es un archivo que generamos dentro de nuestros proyectos, el cual contendrá distintas especificaciones del mismo, cosas como:
+El nombre de tu proyecto
+La versión de tu proyecto
+Algunos scripts para correr el proyecto
+¿de qué depende el proyecto?
+
+DEPENDECIAS 
+Cuando nuestro proyecto necesita utilizar dependencias de terceros a partir de npm, se añade un nuevo campo a nuestro package.json llamado “dependencies” el cual contendrá los módulos que tenemos instalados en ese proyecto y, por lo tanto, indica que el proyecto necesita de esas dependencias instaladas para poder correr correctamente.
+
+
+En la clase 04 creo un package.json y agrego una dependencia 1:05:10
+
+
+
+Instalaciones Globales y Locales 
+
+Local:Instalar una dependencia de manera local significa que ese módulo instalado pertenecerá y se utilizará sólo dentro de ese proyecto. Ello implica que, si quisiera utilizar la misma dependencia en otro proyecto, tendría que volver a hacer la instalación, ya que no son compartidas.
+
+Global:Por otra parte, instalar una dependencia de manera global implica instalar el módulo para todos los proyectos, evitando la necesidad de instalar cada vez que hagamos un proyecto nuevo. Para instalar de manera global, sólo colocamos la flag -g
+
+MANEJO DE VERSIONES: 
+Las versiones se basan en 3 elementos básicos:
+Versiones mayores (primer dígito): Hace referencia a cambios grandes, tanto que ya no son compatibles con otras versiones anteriores.
+Versiones menores (segundo dígito): Hace referencia a cambios en ciertas características y funcionalidades que no afecten a versiones anteriores, es decir, podemos actualizarlo sin afectar la estructura del proyecto.
+Parches (último dígito): Hace referencia a bugfixes o manejo de defectos del código actual. No se está cambiando nada estructuralmente hablando, sólo estamos arreglando cosas.
+
+Operadores para actualizar versiones:
+En nuestro package.json podemos colocar operadores que permitan tener un mejor control de las versiones:
+
+El operador ^ Sirve para instalar la versión menor más alta, esto significa que no  actualizará a alguna versión mayor, protegiendo así a nuestro código de incompatibilidades
+-->
