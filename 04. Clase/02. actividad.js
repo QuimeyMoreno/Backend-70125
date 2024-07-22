@@ -47,7 +47,7 @@ class UserManager {
 
 
   //Lo que hace esta funcion es: 
-  /*1- Crea un hasque es un algoritmo de encriptacion
+  /*1- Crea un hash que es un algoritmo de encriptacion
     2- Actuaizamos ese hash con el algoritmo que se pase
     3- Y luego la tranformamos en un hexadecimal 
     En resumen, lo que hace esta función es tomar una contraseña como entrada, aplicarle el algoritmo de hash sha256 para convertirla en una representación única y fija en formato hexadecimal, y luego devolver esta representación. Este proceso asegura que la contraseña original no se pueda ver directamente, haciendo que sea más seguro almacenar y manejar la contraseña. */

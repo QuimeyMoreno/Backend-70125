@@ -1,0 +1,74 @@
+<!-- 
+SINCRONISMO 
+Las operaciones síncronas o bloqueantes, nos sirven cuando necesitamos que las operaciones se ejecuten una detrás de otra, es decir, se utiliza cuando deseamos que las tareas sean secuenciales, independientemente del tiempo que demore cada operación.
+
+ASINCRONISMO
+Las operaciones asíncronas o no bloqueantes, nos sirven cuando necesitamos que haya múltiples tareas ejecutándose, sin tener que esperar a las tareas que ya se están ejecutando. Úsalas cuando necesites hacer alguna operación, sin afectar al flujo principal.
+
+
+setTimeout
+setTimeout se utiliza para establecer un temporizador que ejecute una tarea después de un determinado tiempo. Permite entender en un par de líneas la idea del asincronismo.
+
+setInterval
+setInterval funciona como setTimeout, la diferencia radica en que éste reiniciará el conteo y ejecutará la tarea nuevamente cada vez que se cumpla dicho intervalo de tiempo.
+
+
+FS EN NODEJS
+fs es la abreviación utilizada para FileSystem, el cual, como indica el nombre, es un sistema de manejador de archivos que nos proporcionará node para poder crear, leer, actualizar o eliminar un archivo, sin tener que hacerlo nosotros desde cero. 
+Así, crear un archivo con contenido será tan fácil como escribir un par de líneas de código, en lugar de tener que lidiar con los datos binarios y transformaciones complejas y de un nivel más bajo en la computadora.
+
+COMO SE UTILIZA?
+fs existe desde el momento en el que instalamos Nodejs en nuestro computador, por lo que, para utilizarlo, podemos llamarlo desde cualquier archivo que tengamos de nuestro código con la siguiente línea: 
+const fs = requiere('fs');
+De ahí en adelante todo el módulo de FileSystem estará contenido en la variable fs. Sólo debemos utilizarlo llamando sus métodos como una clase.
+Esto podremos hacerlo de 3 formas: SINCRONO, con CALLBACKS o con PROMESAS.
+
+FS SINCRONICO
+¡El uso de fs de manera síncrona es bastante sencillo! para ello, sólo utilizaremos la palabra Sync después de cada operación que queramos realizar. Hay muchas operaciones para trabajar con archivos, pero sólo abarcaremos las principales.
+Las principales operaciones que podemos hacer con fs síncrono son:
+
+- writeFileSync = Para escribir contenido en un archivo. Si el archivo no existe, lo crea. Si existe, lo sobreescribe.
+- readFileSync = Para obtener el contenido de un archivo.
+- appendFileSync = Para añadir contenido a un archivo. ¡No se sobreescribe!
+- unlinkSync = Es el “delete” de los archivos. eliminará todo el archivo, no sólo el contenido.
+- existsSync = Corrobora que un archivo exista!
+
+
+FS CON CALLBACKS
+Funciona muy similar a las operaciones síncronas. Sólo que al final recibirán un último argumento, que como podemos intuir, debe ser un callback. Según lo vimos en las convenciones de callbacks de la clase pasada, el primer argumento suele ser un error. 
+Esto permite saber si la operación salió bien, o si salió mal. Sólo readFile maneja un segundo argumento, con el resultado de la lectura del archivo.
+Por último: el manejo por callbacks es totalmente asíncrono, así que cuidado dónde lo usas.
+Las principales operaciones que podemos hacer con fs con callbacks son:
+
+- writeFile = Para escribir contenido en un archivo. Si el archivo no existe, lo crea. Si existe, lo sobreescribe. Al sólo escribir, su callback sólo maneja: (error)=>
+- readFile = Para obtener el contenido de un archivo. Como pide información, su callback es de la forma: (error, resultado)=>
+- appendFile = Para añadir contenido a un archivo. ¡No se sobreescribe!, al sólo ser escritura, su callback sólo maneja: 
+(error)=>
+- unlink = Es el “delete” de los archivos. eliminará todo el archivo, no sólo el contenido.
+Al no retornar contenido, su callback sólo es
+(error)=>
+
+FS CON PROMESAS
+Al colocar a nuestro módulo fs el .promises
+estamos indicando que, la operación que se hará debe ser ejecutada de manera asíncrona, pero en lugar de manipularla con un callback, lo podemos hacer con .then +.catch, o bien con async/await.
+Los argumentos y estructura es casi idéntico al síncrono, por lo tanto sus operaciones principales serán: 
+
+fs.promises.writeFile = Para escribir contenido en un archivo. Si el archivo no existe, lo crea. Si existe, lo sobreescribe.
+fs.promises.readFile  = Para obtener el contenido de un archivo.
+fs.promises.appendFile = Para añadir contenido a un archivo. ¡No se sobreescribe!
+fs.promises.unlink= Es el “delete” de los archivos. eliminará todo el archivo, no sólo el contenido.
+
+Manejo de datos complejos
+Como ya podrás imaginar, no todo son archivos .txt, y por supuesto que no todo es una cadena de texto simple. ¿Qué va a pasar cuando queramos guardar el contenido de una variable, aun si esta es un objeto? ¿Y si es un arreglo? Normalmente los archivos que solemos trabajar para almacenamiento, son los archivos de tipo json.
+Para poder almacenar elementos más complejos, nos apoyaremos del elemento JSON.stringify() y JSON. parse()
+
+JSON.stringify
+Una vez que tenemos el objeto que queremos guardar en el archivo, tenemos que recordar que éste no puede guardarse sólo incrustándolo. Necesitamos convertirlo a formato json, el cual es un formato estándar de guardado y envío de archivos.
+La sintaxis para hacer la conversión es:
+
+JSON.parse
+Ahora que entendemos cómo se convierte un objeto a un JSON, es claro mencionar que JSON.parse representa la operación contraria. Cuando leemos un archivo, el contenido no es manipulable, así que, para recuperar el objeto que había guardado y no sólo una string representativa de él, entonces hay que transformarlo de vuelta, esto se hace con JSON.parse
+su sintaxis es:
+
+
+-->
