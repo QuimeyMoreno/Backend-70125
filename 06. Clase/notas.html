@@ -1,0 +1,65 @@
+<!--
+
+HTTP
+Refiere a un protocolo, el cual es un conjunto de reglas que permite la comunicación entre dos o más sistemas. Gracias a este protocolo, las computadoras saben comunicarse entre sí y permiten comunicarse con servidores para obtención de datos. 
+
+¿COMO FUNCIONA?
+Se basa en un modelo de petición - respuesta. De manera que el cliente tiene que hacer una petición de información, entonces el servidor se encarga de responder con dicha información.
+¡Bajo su configuración por defecto, un servidor puede escuchar múltiples peticiones de múltiples clientes al mismo tiempo!
+
+IMPORTANTE
+El cliente siempre es quien hace las peticiones (requests) y el servidor siempre será quien hace las respuestas (responses) . Cuando hacemos frontend, somos clientes. ¡En este curso te tocará ser el servidor y devolver respuestas!
+
+Mientras que el FrontEnd se centra en la experiencia del usuario, ¡que esta sea lo más presentable y amigable posible!
+…el BackEnd tiene una estructura interna para que todo funcione correctamente. ¡Que no lo vea el usuario!
+
+
+NODEMON
+Como nuestro servidor se mantiene escuchando todo el tiempo, los cambios que hagamos en el código no se reflejan automáticamente. Por ello tenemos que apagar el servidor y levantarlo nuevamente.
+Sólo así podemos visualizar los cambios que hagamos en el código (así sea un simple console.log()
+Nodemon nos permitirá reiniciar automáticamente el servidor en cuanto detecta que hay cambios en el código. De esta manera, podemos concentrarnos en el código, sin tener que realizar el reinicio manual cada vez que queremos ver algo. 
+
+Para instalarlo, basta correr el comando:
+npm install -g nodemon
+
+EXPRESS JS
+Express js es un framework minimalista que permitirá desarrollar servidores más complejos.
+Éste nos facilitará:
+- Utilizar diferentes rutas para las peticiones.
+- Mejorar la estructura de nuestro proyecto.
+- Manejar funcionalidades más complejas y utilización de middlewares. 
+
+PREPARACION DE UN PROYECTO DE EXPRESS JS:
+1) Paso 1: npm init -y 
+Express no es nativo de nodejs, por lo tanto, necesitaremos primero contar con un package.json para gestionar las dependencias a instalar. 
+
+2) Paso 2: npm install express
+Procedemos a instalar de manera local express js. Al ejecutar este comando, notaremos cómo se genera una carpeta node_modules, que es donde se encuentra almacenado express
+
+3) Paso 3: Estructurar el proyecto
+Se recomienda tener una carpeta src, donde vivirá todo nuestro código, dentro del cual crearemos un archivo con el nombre “app.js”
+Finalmente, el archivo app.js ya puede importar la dependencia instalada de express js,  ya sea por commonjs:
+const express = require('express')
+o bien por module (recordar colocar el type:”module” en package.json):
+import express from 'express';
+
+
+OBJETO REQUEST
+El objeto req cuenta con tres propiedades principales: req.query, req.params, req.body.
+
+REQ.PARAMS
+Se utiliza cuando necesitamos obtener elementos dinámicos desde la ruta que está llamando el cliente.
+Para poder definir un “parámetro” dentro de la ruta a trabajar, basta con colocar el símbolo de dos puntos : antes del parámetro, de esta manera, express reconoce que queremos que ese elemento sea dinámico.
+
+
+
+REQ.QUERY
+Como su nombre lo indica, query refiere a las múltiples consultas que se pueden hacer a un determinado endpoint, basta conque en la url coloquemos el símbolo ? , entonces express reconocerá que hay que meter información al objeto req.query para poder utilizarlo en el endpoint.
+
+Cuando buscamos algo en nuestro navegador, llamamos a un endpoint haciendo un determinado query.
+
+Conforme incrementa el dinamismo en las urls, es importante configurar el servidor para que reciba datos complejos desde la url, por ello hay que utilizar la línea: 
+app.use(express.urlencoded({extended:true}))
+
+La línea anterior permitirá que el servidor pueda interpretar mejor los datos complejos que viajen desde la url, y mapearlos correctamente en el req.query
+-->
