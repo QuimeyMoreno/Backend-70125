@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Remera Oversize",
+    "description": "Remera color negro",
+    "price": 20000,
+    "thumbnail": "Sin imagen",
+    "code": "AC1257",
+    "stock": 30,
+    "id": 1
+  },
+  {
+    "title": "Remera Oversize",
+    "description": "Remera color negro",
+    "price": 20000,
+    "thumbnail": "Sin imagen",
+    "code": "AC1257",
+    "stock": 30,
+    "id": 2
+  },
+  {
+    "title": "Remera Oversize",
+    "description": "Remera color negro",
+    "price": 20000,
+    "thumbnail": "Sin imagen",
+    "code": "AC1257",
+    "stock": 30,
+    "id": 3
+  },
+  {
+    "title": "Remera Oversize",
+    "description": "Remera color negro",
+    "price": 20000,
+    "thumbnail": "Sin imagen",
+    "code": "AC1257",
+    "stock": 30,
+    "id": 4
+  },
+  {
+    "title": "Remera Oversize",
+    "description": "Remera color negro",
+    "price": 20000,
+    "thumbnail": "Sin imagen",
+    "code": "AC1257",
+    "stock": 30,
+    "id": 5
+  }
+]

@@ -22,107 +22,178 @@ Debe tener un metodo de updateProduct, el cual debe recibir el id del producto a
 Debe tener un metodo de deleteProduct el cual debe recibir el id y debe eliminar el producto que tenga ese id en el archivo 
  */
 
-const { log } = require("console");
 const fs = require("fs");
+
 const { v4: uuidv4 } = require("uuid");
 
 class ProductManager {
-  constructor(path) {
-    this.path = path;
-  }
 
-  async addProduct(producto) {
-    if (
-      !producto.title ||
-      !producto.description ||
-      !producto.price ||
-      !producto.thumbnail ||
-      !producto.code ||
-      !producto.stock
-    ) {
-      return console.log("Producto incompleto");
-    }
-    let id = productos.length > 0 ? productos[productos.length - 1].id + 1 : 1;
-    const nuevoProducto = {
-      title: producto.title,
-      description: producto.description,
-      price: producto.price,
-      thumbnail: producto.thumbnail,
-      code: producto.code,
-      stock: producto.stock,
-      id: id,
-    };
-    const productos = await this.getProducts();
-    productos.push(nuevoProducto);
-    await fs.promises.writeFile(
-      this.path,
-      JSON.stringify(productos, null, 2),
-      "utf8"
-    );
-  }
+    constructor(path) {
 
-  async getProducts() {
-    try {
-      const result = await fs.promises.readFile(this.path, "utf-8");
-      const product = JSON.parse(result);
-      return product;
-    } catch (error) {
-      return [];
-    }
-  }
+        this.path = path;
 
-  async getProductById(idProducto) {
-    const productos = await this.getProducts();
-    const producto = productos.find((p) => p.id === idProducto);
-    if (!producto) {
-      console.log("Error, el id del producto no existe");
-    }
-    return producto;
-  }
-
-  async updateProduct(idProducto, updatedFields) {
-    const productoExistente = await this.getProductById(idProducto);
-
-    if (!productoExistente) {
-      console.log("Error, el id del producto no existe");
-      return;
     }
 
-    const productos = await this.getProducts();
-    const index = productos.findIndex((p) => p.id === idProducto);
+    async addProduct(producto) {
 
-    productos[index] = { ...productos[index], ...updatedFields };
+        if (
 
-    await fs.promises.writeFile(this.path, JSON.stringify(productos, null, 2));
-  }
+            !producto.title ||
 
-  async deleteProduct(idProducto) {
-    const productos = await this.getProducts();
-    const index = productos.findIndex((p) => p.id === idProducto);
+            !producto.description ||
 
-    if (index === -1) {
-      console.log("Error: No se encontró el producto");
-      return;
+            !producto.price ||
+
+            !producto.thumbnail ||
+
+            !producto.code ||
+
+            !producto.stock
+
+        ) {
+
+            return console.error("Producto incompleto");
+
+        }
+
+        const productos = await this.getProducts();
+
+        let id = productos.length > 0 ? productos[productos.length - 1].id + 1 : 1;
+
+        const nuevoProducto = {
+
+            title: producto.title,
+
+            description: producto.description,
+
+            price: producto.price,
+
+            thumbnail: producto.thumbnail,
+
+            code: producto.code,
+
+            stock: producto.stock,
+
+            id: id,
+
+        };
+
+        productos.push(nuevoProducto);
+
+        await fs.promises.writeFile(
+
+            this.path,
+
+            JSON.stringify(productos, null, 2),
+
+            "utf8"
+
+        );
+
     }
 
-    productos.splice(index, 1);
-    await fs.promises.writeFile(this.path, JSON.stringify(productos, null, 2));
-  }
+    async getProducts() {
+
+        try {
+
+            const result = await fs.promises.readFile(this.path, "utf-8");
+
+            return JSON.parse(result);
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+    async getProductById(idProducto) {
+
+        const productos = await this.getProducts();
+
+        const producto = productos.find((p) => p.id === idProducto);
+
+        if (!producto) {
+
+            console.error("Error, el id del producto no existe");
+
+            return null;
+
+        }
+
+        return producto;
+
+    }
+
+    async updateProduct(idProducto, updatedFields) {
+
+        const productoExistente = await this.getProductById(idProducto);
+
+        if (!productoExistente) {
+
+            console.error("Error, el id del producto no existe");
+
+            return;
+
+        }
+
+        const productos = await this.getProducts();
+
+        const index = productos.findIndex((p) => p.id === idProducto);
+
+        productos[index] = { ...productos[index], ...updatedFields };
+
+        await fs.promises.writeFile(this.path, JSON.stringify(productos, null, 2));
+
+    }
+
+    async deleteProduct(idProducto) {
+
+        const productos = await this.getProducts();
+
+        const index = productos.findIndex((p) => p.id === idProducto);
+
+        if (index === -1) {
+
+            console.error("Error: No se encontró el producto");
+
+            return;
+
+        }
+
+        productos.splice(index, 1);
+
+        await fs.promises.writeFile(this.path, JSON.stringify(productos, null, 2));
+
+    }
+
 }
 
 const test = async () => {
-  const productsManager = new ProductManager("./productos.json");
-  await productsManager.addProduct({
-    title: "Remera Oversize",
-    description: "Remera color negro",
-    price: 20000,
-    thumbnail: "Sin imagen",
-    code: "AC1257",
-    stock: 30,
-  });
-  const products = await productsManager.getProducts();
-  console.log(products);
-};
 
+    const productsManager = new ProductManager("./productos.json");
+
+    await productsManager.addProduct({
+
+        title: "Remera Oversize",
+
+        description: "Remera color negro",
+
+        price: 20000,
+
+        thumbnail: "Sin imagen",
+
+        code: "AC1257",
+
+        stock: 30,
+
+    });
+
+    const products = await productsManager.getProducts();
+
+    console.log(products);
+
+};
 
 test();
