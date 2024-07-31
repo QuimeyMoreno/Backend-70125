@@ -1,0 +1,109 @@
+<!--  
+
+
+CODIGOS DE ESTADO EN HTTP
+
+Cuando realizamos alguna petición al servidor mediante el protocolo HTTP, el servidor debe respondernos no sólo con información, sino con un estado del proceso. Este es un código que nos permitirá saber cómo se encuentra el proceso, o cómo finalizó. 
+
+¿Como funciona?
+Cuando el servidor responde con un código de estado, esto permite saber qué ocurrió con la consulta que estábamos haciendo, y da información al cliente sobre qué ha ocurrido.
+
+
+- 1xx: Status “informativo” 100 - 199
+
+- 2xx : Status “ok” 200 - 299 
+Indica que la petición se procesó correctamente. No hubo ningún tipo de inconveniente desde la consulta hasta la respuesta.
+
+- 3xx: Status de redirección. 300 - 399
+Hace referencia a redirecciones, cuando un recurso se ha movido o necesitamos apuntar a otro servicio.
+
+- 4xx: Status de error de cliente. 400 - 499
+Se utiliza cuando el cliente realiza alguna petición que no cumpla con las reglas de comunicación (una mala consulta, tal vez le faltó enviar un dato, o venía en un formato incorrecto).
+
+- 5xx: Status de error en servidor. 500 - 599
+Se utiliza cuando algo ocurrió en el servidor, no necesariamente un error del cliente, sino un error o “detalle” que no haya considerado el servidor al tratar con algún caso.
+
+
+
+
+
+
+
+COMPRENDIENDO QUE ES UNA API REST 
+
+API (Application Programming Interface)
+
+Es un conjunto de definiciones y reglas que permiten que dos equipos puedan integrarse para trabajar juntos. La mejor analogía que hay para comprender ésto es que una API funge como un “contrato” entre el front y el back.
+
+La API permite entonces que se respondan preguntas como:
+- ¿A qué endpoint debo apuntar para la tarea que necesito?
+- ¿Qué método debo utilizar para ese recurso?
+- ¿Qué información debo enviar para realizar correctamente mi petición?
+
+
+
+
+
+REST
+Ya tenemos las reglas para comunicarse, ¿Pero qué tal la estructura del mensaje?
+Cuando hacemos una petición o cuando recibimos una respuesta, ésta debe tener un formato. REST (REpresentational State Transfer) permite definir la estructura que deben tener los datos para poder transferirse.
+
+La API respondía a preguntas sobre cómo comunicarse correctamente, sin embargo, REST define cómo debe ser el cuerpo del mensaje a transmitir. (puedes llegar a hablar con el presidente si cumples con el protocolo (HTTP) y las reglas (API), pero ¿de qué nos servirá si la forma en que estructuramos nuestro mensaje (REST) no es correcta?)
+
+Los dos formatos màs importantes son JSON Y XML
+La utilización de la estructura dependerá de las necesidades del proyecto. Nosotros utilizaremos JSON. Como notarás, ¡un JSON parece un objeto! así que es mucho más amigable la sintaxis.
+
+ENTONCES UN API REST ES
+Un modelo completo para tener perfectamente estipulados los protocolos, las reglas, e incluso la estructura de la información, con el fin de poder hacer un sistema de comunicación completo entre las computadoras.
+
+CLIENTE --- GET-POST-PUT-DELETE ---- API ---- HTTP REQUEST ---- SERVER ----
+HTTP RESPONSE ---- REST API ---- JSON-HTML-XML 
+
+
+¿Qué características debe tener una API REST?
+
+Arquitectura Cliente-Servidor sin estado
+- Cada mensaje HTTP contiene toda la información necesaria para comprender la petición. 
+- Como resultado, ni el cliente ni el servidor necesitan recordar ningún estado de las comunicaciones entre mensajes. 
+- Esta restricción mantiene al cliente y al servidor débilmente acoplados: el cliente no necesita conocer los detalles de implementación del servidor y el servidor se “despreocupa” de cómo son usados los datos que envía al cliente.
+
+Cacheable
+- Debe admitir un sistema de almacenamiento en caché. 
+- La infraestructura de red debe soportar una caché de varios niveles. 
+- Este almacenamiento evita repetir varias conexiones entre el servidor y el cliente, en casos en que peticiones idénticas fueran a generar la misma respuesta.
+
+
+Operaciones comunes
+- Todos los recursos detrás de nuestra API deben poder ser consumidos mediante peticiones HTTP, preferentemente sus principales (POST, GET, PUT y DELETE). 
+- Con frecuencia estas operaciones se equiparan a las operaciones CRUD en bases de datos (en inglés: Create, Read, Update, Delete, en español: Alta, Lectura, Modificación, y Baja). 
+- Al tratarse de peticiones HTTP, éstas deberán devolver con sus respuestas los correspondientes códigos de estado, informando el resultado de las mismas. 
+
+Interfaz uniforme
+- En un sistema REST, cada acción (más correctamente, cada recurso) debe contar con una URI (Uniform Resource Identifier), un identificador único. 
+- Ésta nos facilita el acceso a la información, tanto para consultarla, como para modificarla o eliminarla, pero también para compartir su ubicación exacta a terceros.
+
+
+Utilización de hipermedios
+- Cada vez que se hace una petición al servidor y este devuelve una respuesta, parte de la información devuelta pueden ser también hipervínculos de navegación asociada a otros recursos del cliente.
+- Como resultado de esto, es posible navegar de un recurso REST a muchos otros, simplemente siguiendo enlaces sin requerir el uso de registros u otra infraestructura adicional.
+
+
+
+
+
+
+
+
+
+METODOS DE PETICION
+
+Un método es una definición que forma parte del protocolo HTTP, el cual nos sirve para canalizar el tipo de petición que estoy realizando sobre un cierto endpoint. De esta manera, el cliente puede llamar al mismo endpoint, pero con diferentes métodos, indicando qué operación quiere realizar con dicho recurso. Los principales métodos son:
+
+GET: Obtener un recurso
+POST: Crear o añadir un recurso
+PUT: Modificar un recurso
+DELETE: Eliminar un recurso
+
+
+"dev":"node --watch server.js" --- npm run dev
+-->
